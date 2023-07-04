@@ -6,7 +6,13 @@ const path = require("path");
 const cors = require("cors");
 
 // Enable CORS
-app.use(cors());
+app.use(
+  cors({
+    origin: ["https://israelbody.vercel.app/"],
+    methods: ["POST", "GET"],
+    credentials: true,
+  })
+);
 
 // For the form in order for it not to crash/fail
 app.use(express.json({ limit: "25mb" }));
@@ -17,10 +23,14 @@ app.use((req, res, next) => {
 });
 
 // Serve the React app
-app.use(express.static(path.join(__dirname, "my-app", "build")));
+// app.use(express.static(path.join(__dirname, "my-app", "build")));
+
+// app.get("/", (req, res) => {
+//   res.sendFile(path.join(__dirname, "my-app", "build", "index.html"));
+// });
 
 app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "my-app", "build", "index.html"));
+  res.json("Hello");
 });
 
 app.post("/submit", async (req, res) => {
