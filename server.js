@@ -23,14 +23,10 @@ app.use((req, res, next) => {
 });
 
 // Serve the React app
-// app.use(express.static(path.join(__dirname, "my-app", "build")));
-
-// app.get("/", (req, res) => {
-//   res.sendFile(path.join(__dirname, "my-app", "build", "index.html"));
-// });
+app.use(express.static(path.join(__dirname, "my-app", "build")));
 
 app.get("/", (req, res) => {
-  res.json("Hello");
+  res.sendFile(path.join(__dirname, "my-app", "build", "index.html"));
 });
 
 app.post("/submit", async (req, res) => {
