@@ -14,6 +14,13 @@ app.use(
   })
 );
 
+const proxy = require("http-proxy-middleware");
+
+module.exports = function (app) {
+  // add other server routes to path array
+  app.use(proxy(["/api"], { target: "http://localhost:5000" }));
+};
+
 // For the form in order for it not to crash/fail
 app.use(express.json({ limit: "25mb" }));
 app.use(express.urlencoded({ limit: "25mb" }));
@@ -66,7 +73,7 @@ app.post("/submit", async (req, res) => {
 });
 
 // Start the server
-const PORT = process.env.PORT;
+const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
