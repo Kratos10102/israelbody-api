@@ -8,7 +8,7 @@ const cors = require("cors");
 // Enable CORS
 app.use(
   cors({
-    origin: ["https://israelbody.vercel.app/"],
+    origin: ["https://sheltered-gorge-01603-2a22ed5300f7.herokuapp.com/"],
     methods: ["POST", "GET"],
     credentials: true,
   })
@@ -65,7 +65,7 @@ app.post("/submit", async (req, res) => {
 });
 
 // Start the server
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT;
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
