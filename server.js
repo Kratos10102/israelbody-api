@@ -8,7 +8,7 @@ const cors = require("cors");
 // Enable CORS
 app.use(
   cors({
-    origin: ["https://sheltered-gorge-01603-2a22ed5300f7.herokuapp.com/"],
+    origin: ["https://sheltered-gorge-01603-2a22ed5300f7.herokuapp.com"],
     methods: ["POST", "GET"],
     credentials: true,
   })
