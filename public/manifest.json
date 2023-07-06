@@ -7,7 +7,7 @@
     "theme_color": "#3367D6",
     "icons": [
       {
-        "src": "server/my-app/build/img/icons/facebookIcon.png",
+        "src": "/my-app/build/img/icons/facebookIcon.png",
         "sizes": "192x192",
         "type": "image/png"
       }
