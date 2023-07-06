@@ -18,7 +18,7 @@ const proxy = require("http-proxy-middleware");
 
 module.exports = function (app) {
   // add other server routes to path array
-  app.use(proxy(["/api"], { target: "http://localhost:5000" }));
+  app.use(proxy(["/api"], { target: "http://localhost:3000" }));
 };
 
 // For the form in order for it not to crash/fail
