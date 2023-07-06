@@ -4,22 +4,17 @@ const app = express();
 const nodemailer = require("nodemailer");
 const path = require("path");
 const cors = require("cors");
+const bodyParser = require("body-parser");
 
 // Enable CORS
-app.use(
-  cors({
-    origin: ["https://sheltered-gorge-01603-2a22ed5300f7.herokuapp.com"],
-    methods: ["POST", "GET"],
-    credentials: true,
-  })
-);
-
-const proxy = require("http-proxy-middleware");
-
-module.exports = function (app) {
-  // add other server routes to path array
-  app.use(proxy(["/api"], { target: "http://localhost:3000" }));
+var corsOptions = {
+  origin: "http://localhost:3000",
 };
+
+app.use(cors(corsOptions));
+
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
 // For the form in order for it not to crash/fail
 app.use(express.json({ limit: "25mb" }));
