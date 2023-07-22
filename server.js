@@ -6,9 +6,9 @@ const path = require("path");
 const cors = require("cors");
 const bodyParser = require("body-parser");
 
-// Enable CORS
+// CORS
 var corsOptions = {
-  origin: "http://localhost:3000",
+  origin: "*",
 };
 
 app.use(cors(corsOptions));
@@ -54,7 +54,6 @@ app.post("/submit", async (req, res) => {
         <h1>פרטי לקוח</h1>
         <p>Full name: ${formData.fullName} </p>
         <p>Phone number: ${formData.phone}</p>
-        <p>Email address: ${formData.email}</p>
         <p>Goal: ${formData.purpose}</p>
       `,
     });
@@ -68,7 +67,7 @@ app.post("/submit", async (req, res) => {
 });
 
 // Start the server
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 5001;
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
