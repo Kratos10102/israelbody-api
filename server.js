@@ -25,11 +25,11 @@ app.use((req, res, next) => {
 });
 
 // Serve the React app
-app.use(express.static(path.join(__dirname, "my-app", "build")));
+app.use(express.static(path.join(__dirname, "public", "my-app", "build")));
 app.use(express.static("public"));
 
 app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "my-app", "build", "index.html"));
+  res.sendFile(path.join(__dirname, "public", "my-app", "build", "index.html"));
 });
 
 app.post("/submit", async (req, res) => {

@@ -7,7 +7,7 @@
     "node": "18.x"
   },
   "scripts": {
-    "start": "node api/server.js",
+    "start": "node server.js",
     "server": "node server.js",
     "client": "npm run start --prefix client"
   },
