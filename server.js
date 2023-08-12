@@ -28,11 +28,8 @@ app.use((req, res, next) => {
 app.use(express.static(path.join(__dirname, "my-app", "build")));
 app.use(express.static("public"));
 
-// app.get("/", (req, res) => {
-//   res.sendFile(path.join(__dirname, "my-app", "build", "index.html"));
-// });
 app.get("/", (req, res) => {
-  res.json({ message: "Everything is working" });
+  res.sendFile(path.join(__dirname, "my-app", "build", "index.html"));
 });
 
 app.post("/submit", async (req, res) => {
